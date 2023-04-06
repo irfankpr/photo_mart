@@ -1,5 +1,6 @@
 import streamlit as st
 import requests as rq
+import webbrowser
 from bs4 import BeautifulSoup as bs
 
 def main():
@@ -17,12 +18,16 @@ def main():
         for n,img in enumerate(images):
             if n%4==0:
                 c1.image(src(img))
+                c1.markdown(f"<a href={src(img)} ",unsafe_allow_html=True)
             elif n%4==1:
                 c2.image(src(img))
+                c2.markdown(f"<a href={src(img)} ",unsafe_allow_html=True)
             elif n%4==2:
                 c3.image(src(img))
+                c3.markdown(f"<a href={src(img)} ",unsafe_allow_html=True)
             else :
                 c4.image(src(img))
+                c4.markdown(f"<a href={src(img)} ",unsafe_allow_html=True)
                     
                 
             
@@ -31,6 +36,11 @@ def main():
             
  # exicution starts from here            
 if __name__=="__main__":
-    st.set_page_config(layout="wide")
+    st.set_page_config(
+    page_title="Image Scraper",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="auto",
+    )
     main()
     
